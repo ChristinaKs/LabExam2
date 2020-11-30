@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EndScreenWorld extends SimulationWorld
 {
-
-
+    GreenfootSound music;
+    double timeEndsScreenCreation = System.currentTimeMillis();
     /**
      * Constructor for objects of class EndScreenWorld.
      * 
@@ -17,7 +17,9 @@ public class EndScreenWorld extends SimulationWorld
     public EndScreenWorld(double vscore)
     {
         super("",  800, 600, new Point2D(0.0, 0.0), 10);
-
+        music = new GreenfootSound("endMenu.wav");
+        setMusic(music);
+        
         Score result = new Score();
         addObject(result, 400, 320);
         result.setImage(new GreenfootImage("You finished with a score of " + (int) vscore + ".", 40, Color.WHITE, Color.BLACK, Color.YELLOW));;
@@ -26,14 +28,32 @@ public class EndScreenWorld extends SimulationWorld
         addObject(feedback,400,380);
 
         String ranking = new String();
-  
+        if (vscore >= 45)
+            ranking = " Professional player";
+        else if (vscore >= 25 && vscore <= 45)
+            ranking = " Intermediate player";
+        else
+            ranking = " Novice player";
+        feedback.setImage(new GreenfootImage("You are a" + ranking + ".", 40, Color.BLUE, Color.BLACK, Color.YELLOW));;
+        
+        
         feedback.setImage(new GreenfootImage("You are " + ranking + ".", 40, Color.BLUE, Color.BLACK, Color.YELLOW));
 
     }
     
     public void act()
     {
+        
+        if (Greenfoot.isKeyDown("space"))
+        {
+            transitionToWorld(new CatchWorld()); 
+        }
 
+
+        if (System.currentTimeMillis() >= (timeEndsScreenCreation + 35000))
+        {
+            transitionToWorld(new CatchWorld());
+        }
  
         
          

@@ -51,11 +51,20 @@ public class CatchWorld extends SimulationWorld
             // get random number 1 or 2 for adding apples (appleCategory 1 for Red Apple, appleCategory 2 for Yellow Apple)
             int appleCategory = Greenfoot.getRandomNumber(2)+1;
             addObject(new Apple(appleCategory), xPos, -i);
-            
-            
+            if(Greenfoot.getRandomNumber(100)>30)
+            {
+                appleCategory = 2;
+            }
+            else 
+            {
+                appleCategory = 1;
+            }
         }
 
         Score score = new Score();
         addObject(score,725,36);
+        
+        
+        
     }
 }

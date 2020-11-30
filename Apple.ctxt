@@ -2,6 +2,10 @@
 comment0.target=Apple
 comment1.params=v_appleColor
 comment1.target=Apple(int)
-comment2.params=
-comment2.target=void\ act()
-numComments=3
+comment2.params=v_appleColor
+comment2.target=void\ setAppleColor(int)
+comment3.params=v_appleColor
+comment3.target=int\ getAppleColor(int)
+comment4.params=
+comment4.target=void\ act()
+numComments=5

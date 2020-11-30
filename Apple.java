@@ -22,7 +22,27 @@ public class Apple extends SimulationActor
         }
 
     }
+    private void setAppleColor(int v_appleColor)
+    {
+        setRotation(Greenfoot.getRandomNumber(360));
 
+        if (v_appleColor == 1)
+        {
+            setImage("redApple.png");
+            appleColor = 1;
+            
+        } else
+        if (v_appleColor == 2)
+        {
+            setImage("yellowApple.png");
+            appleColor = 2;
+        }
+
+    }
+    public int getAppleColor(int v_appleColor)
+    {
+        return v_appleColor;
+    }
     public void act() 
     {
         super.act();
