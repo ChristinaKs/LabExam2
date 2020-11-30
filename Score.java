@@ -42,8 +42,18 @@ public class Score extends Actor
     
     public double getScore()
     {
+        Actor apple = getOneIntersectingObject(Apple.class);
+        int appleColour = Apple.getAppleColor();
+        if (apple != null && appleColour == 1) {
+            score += 1;
+        } 
+        if (apple != null && appleColour == 2) 
+        {
+            score += 2;
+        }
         return score;
     }
-
+    
+    
     
 }

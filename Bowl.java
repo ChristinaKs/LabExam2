@@ -35,7 +35,7 @@ public class Bowl extends SimulationActor
 
         }
 
-        //eatAppleOnCollision();
+        eatAppleOnCollision();
 
     }  
 
@@ -48,17 +48,18 @@ public class Bowl extends SimulationActor
 
         
         Actor apple = getOneIntersectingObject(Apple.class);
-        if (apple != null && Apple.getAppleColor() == 1) {
-    
+        int appleColour = Apple.getAppleColor();
+        if (apple != null && appleColour == 1) {
+            
             world.removeObject(apple);
             redApplesCounter ++;
             Greenfoot.playSound("pop1.wav");
         } 
-        if (apple != null && apple.getAppleColor() == 2) 
+        if (apple != null && appleColour == 2) 
         {
             world.removeObject(apple);
             yellowApplesCounter ++;
-            Greenfoot.playSound("pop1.wav");
+            Greenfoot.playSound("pop2.wav");
         }
     }
 }
